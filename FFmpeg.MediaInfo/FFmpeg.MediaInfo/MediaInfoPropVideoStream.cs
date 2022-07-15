@@ -17,14 +17,14 @@ namespace FFmpeg.MediaInfo
         public MediaInfoPropPair<long, string>? RcMaxRate { get; set; }
         public MediaInfoPropPair<long, string>? BitsPerRawSample { get; set; }
         public bool? HasBFrames { get; set; }
-        public string PixFmt { get; set; }
+        public string? PixFmt { get; set; }
         public int? Level { get; set; }
-        public string FieldOrder { get; set; }
-        public string ColorRange { get; set; }
-        public string ChromaLocation { get; set; }
-        public string ColorSpace { get; set; }
-        public string ColorTransfer { get; set; }
-        public string ColorPrimaries { get; set; }
+        public string? FieldOrder { get; set; }
+        public string? ColorRange { get; set; }
+        public string? ChromaLocation { get; set; }
+        public string? ColorSpace { get; set; }
+        public string? ColorTransfer { get; set; }
+        public string? ColorPrimaries { get; set; }
         public int? Width { get; set; }
         public int? Height { get; set; }
         public int? CodedWidth { get; set; }

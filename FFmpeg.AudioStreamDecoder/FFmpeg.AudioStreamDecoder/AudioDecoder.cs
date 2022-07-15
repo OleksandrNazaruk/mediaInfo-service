@@ -76,7 +76,7 @@ namespace FFmpeg.AudioStreamDecoder
             var buffer = stackalloc byte[bufferSize];
             ffmpeg.av_strerror(error, buffer, (ulong)bufferSize);
             var message = Marshal.PtrToStringAnsi((IntPtr)buffer);
-            return message;
+            return message ?? String.Empty;
         }
 
         private void FlushDecoders()
@@ -91,7 +91,7 @@ namespace FFmpeg.AudioStreamDecoder
             }
         }
 
-        public AVReturnCode TryDecodeNextFrame(AudioDecoder.ReceiveFrameCallBack OnReceiveFrame)
+        public AVReturnCode TryDecodeNextFrame(AudioDecoder.ReceiveFrameCallBack? OnReceiveFrame)
         {
             int ret = default;
             AVReturnCode returnCode = AVReturnCode.OK;
@@ -104,7 +104,7 @@ namespace FFmpeg.AudioStreamDecoder
                     throw new ApplicationException(AudioDecoder.av_strerror(ret));
 
 
-                if (this.streams.TryGetValue(_pPacket->stream_index, out AudioStreamDecoder stream))
+                if (this.streams.TryGetValue(_pPacket->stream_index, out AudioStreamDecoder? stream))
                 {
                     stream.DecodePacket(_pPacket, OnReceiveFrame);
                     returnCode = AVReturnCode.OK;
@@ -128,7 +128,7 @@ namespace FFmpeg.AudioStreamDecoder
             return returnCode;
         }
 
-        public void Decode(AudioDecoder.ReceiveFrameCallBack OnReceiveFram = null)
+        public void Decode(AudioDecoder.ReceiveFrameCallBack? OnReceiveFram = null)
         {
             AVReturnCode returnCode = default;
             do

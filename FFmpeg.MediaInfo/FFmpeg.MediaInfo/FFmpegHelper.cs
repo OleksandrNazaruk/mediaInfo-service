@@ -16,7 +16,7 @@ namespace FFmpeg.MediaInfo
             var buffer = stackalloc byte[bufferSize];
             ffmpeg.av_strerror(error, buffer, (ulong)bufferSize);
             var message = Marshal.PtrToStringAnsi((IntPtr)buffer);
-            return message;
+            return message ?? string.Empty;
         }
 
         public static int ThrowExceptionIfError(this int error)

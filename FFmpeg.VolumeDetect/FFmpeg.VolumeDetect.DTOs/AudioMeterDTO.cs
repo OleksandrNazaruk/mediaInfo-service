@@ -22,7 +22,7 @@ namespace FFmpeg.VolumeDetect.DTOs
         public double? MaxVolume { get; set; }
 
         [JsonPropertyName("histogram_db")]
-        public IDictionary<string, UInt64> Histogram { get; set; }
+        public IDictionary<string, UInt64>? Histogram { get; set; }
 
         public AudioMeterDTO()
         {

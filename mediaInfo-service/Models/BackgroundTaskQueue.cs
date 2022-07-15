@@ -61,7 +61,7 @@ namespace _MediaInfoService.Models
             }
         }
 
-        public BackgroundTask Dequeue(Guid taskID)
+        public BackgroundTask? Dequeue(Guid taskID)
         {
             this._tasks.Remove(taskID, out BackgroundTask? backgroundTask);
             return backgroundTask;

@@ -10,7 +10,7 @@ namespace FFmpeg.MediaInfo.DTOs.JsonConverter
             Type typeToConvert,
             JsonSerializerOptions options) =>
                 DateTimeOffset.Parse(
-                    reader.GetString());
+                    reader.GetString()!);
 
         public override void Write(
             Utf8JsonWriter writer,

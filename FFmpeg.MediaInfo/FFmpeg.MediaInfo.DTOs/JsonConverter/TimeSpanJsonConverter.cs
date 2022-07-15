@@ -20,13 +20,13 @@ namespace FFmpeg.MediaInfo.DTOs.JsonConverter
                         case JsonTokenType.EndObject when reader.CurrentDepth == startDepth:
                             return TimeSpan.FromTicks(ticks);
                         case JsonTokenType.PropertyName:
-                            propertyName = reader.GetString();
+                            propertyName = reader.GetString()!;
                             break;
                     }
                     if (!string.IsNullOrWhiteSpace(propertyName) && propertyName.Equals("Ticks") && reader.TokenType == JsonTokenType.Number) ticks = reader.GetInt64();
                 }
             }
-            else if (reader.TokenType == JsonTokenType.String) return TimeSpan.Parse(reader.GetString(), new CultureInfo("en-US"));
+            else if (reader.TokenType == JsonTokenType.String) return TimeSpan.Parse(reader.GetString()!, new CultureInfo("en-US"));
             return TimeSpan.Zero;
         }
 

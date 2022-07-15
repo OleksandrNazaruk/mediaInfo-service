@@ -7,11 +7,11 @@ namespace _MediaInfoService.Models
         private Action _action;
         private CancellationTokenSource _taskToLifeTokenSource = new CancellationTokenSource();
         private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
-        private Task _task;
+        private Task? _task;
         public Guid _id;
         private string? _taskSettings;
 
-        private Object _result;
+        private Object? _result;
 
         public BackgroundTask(string? taskSettings, Action<BackgroundTask> action)
         {
@@ -24,7 +24,7 @@ namespace _MediaInfoService.Models
                     RunningAt = DateTime.UtcNow;
                     action(this);
                 }
-                catch (Exception e)
+                catch
                 {
 
                 }
@@ -56,7 +56,7 @@ namespace _MediaInfoService.Models
         {
             get => _cancellationTokenSource;
         }
-        public Task task
+        public Task? task
         {
             get => _task;
             set => _task = value;
@@ -68,7 +68,7 @@ namespace _MediaInfoService.Models
         public DateTime? RunningAt { get; set; }
         public DateTime? FinishedAt { get; set; }
         public string? TaskSettings { get => this._taskSettings; }
-        public Object Result { get => this._result; set => this._result = value; }
+        public Object? Result { get => this._result; set => this._result = value; }
 
     }
 }

@@ -11,6 +11,6 @@ namespace FFmpeg.MediaInfo.Models
     {
         public int? Value { get; set; }
         public ulong? Layout { get; set; }
-        public string LayoutName { get; set; }
+        public string? LayoutName { get; set; }
     }
 }

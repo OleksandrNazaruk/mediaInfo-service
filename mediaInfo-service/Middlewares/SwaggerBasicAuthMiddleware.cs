@@ -23,16 +23,18 @@ namespace _MediaInfoService.Middlewares
                 {
                     // Get the credentials from request header
                     var header = AuthenticationHeaderValue.Parse(authHeader);
-                    var inBytes = Convert.FromBase64String(header.Parameter);
-                    var credentials = Encoding.UTF8.GetString(inBytes).Split(':');
-                    var username = credentials[0];
-                    var password = credentials[1];
-
-                    // validate credentials
-                    if (SwaggerBasicAuthMiddleware.ValidatePassword(username, password))
+                    if (header.Parameter != null)
                     {
-                        await next.Invoke(context).ConfigureAwait(false);
-                        return;
+                        byte[] inBytes = Convert.FromBase64String(header.Parameter);
+                        var credentials = Encoding.UTF8.GetString(inBytes).Split(':');
+                        var username = credentials[0];
+                        var password = credentials[1];
+                        // validate credentials
+                        if (SwaggerBasicAuthMiddleware.ValidatePassword(username, password))
+                        {
+                            await next.Invoke(context).ConfigureAwait(false);
+                            return;
+                        }
                     }
                 }
                 context.Response.Headers["WWW-Authenticate"] = "Basic";

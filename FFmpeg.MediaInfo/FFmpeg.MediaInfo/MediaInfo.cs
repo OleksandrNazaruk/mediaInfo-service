@@ -45,9 +45,12 @@ namespace FFmpeg.MediaInfo
 
         public void Dispose()
         {
-            foreach (MediaInfoPropStream AVStream in this.AVStreams)
+            if (this.AVStreams != null)
             {
-                AVStream.Dispose();
+                foreach (MediaInfoPropStream AVStream in this.AVStreams)
+                {
+                    AVStream.Dispose();
+                }
             }
         }
 
@@ -146,7 +149,7 @@ namespace FFmpeg.MediaInfo
                                 this.AVStreams.Add(avstream);
 
                                 if (this.VideoStreamIndex == i)
-                                    this.Standard = GetStandard((int)avstream.Width, (int)avstream.Height);
+                                    this.Standard = GetStandard(avstream.Width ?? 0, avstream.Height ?? 0);
 
                                 break;
                             case AVMediaType.AVMEDIA_TYPE_AUDIO:
@@ -187,7 +190,7 @@ namespace FFmpeg.MediaInfo
             var buffer = stackalloc byte[bufferSize];
             ffmpeg.av_strerror(error, buffer, (ulong)bufferSize);
             var message = Marshal.PtrToStringAnsi((IntPtr)buffer);
-            return message;
+            return message ?? String.Empty;
         }
 
         #region Conversions
@@ -198,7 +201,12 @@ namespace FFmpeg.MediaInfo
             AVDictionaryEntry* tag = null;
             while ((tag = ffmpeg.av_dict_get(dict, "", tag, ffmpeg.AV_DICT_IGNORE_SUFFIX)) != null)
             {
-                result.Add(Marshal.PtrToStringAnsi((IntPtr)tag->key), Marshal.PtrToStringAnsi((IntPtr)tag->value));
+                var key = Marshal.PtrToStringAnsi((IntPtr)tag->key);
+                var value = Marshal.PtrToStringAnsi((IntPtr)tag->value);
+
+                if (key != null)
+                    result.Add(key, value ?? string.Empty);
+                
             }
             return result;
         }

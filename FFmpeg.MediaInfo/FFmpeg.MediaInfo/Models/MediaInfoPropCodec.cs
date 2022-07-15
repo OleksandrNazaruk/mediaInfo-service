@@ -9,11 +9,11 @@ namespace FFmpeg.MediaInfo.Models
 {
     public struct MediaInfoPropCodec
     {
-        public string String { get; set; }
+        public string? String { get; set; }
 
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        public string Profile { get; set; }
+        public string? Profile { get; set; }
 
         public MediaInfoPropPair<long, string>? Tag { get; set; }
     }

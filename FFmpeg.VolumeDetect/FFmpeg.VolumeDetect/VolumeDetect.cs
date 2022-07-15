@@ -24,8 +24,7 @@ namespace FFmpeg.VolumeDetect
             {
                 audioDecoder.Decode((AVFrame* samples, int streamIndex) =>
                 {
-                    UInt64[] histogram;
-                    if (!histograms.TryGetValue(streamIndex, out histogram))
+                    if (!histograms.TryGetValue(streamIndex, out UInt64[]? histogram))
                     {
                         histogram = new UInt64[0x10001];
                         histograms.TryAdd(streamIndex, histogram);

@@ -9,9 +9,9 @@ namespace FFmpeg.MediaInfo.Models
 {
     public class MediaInfoPropFormat
     {
-        public string Name { get; set; } = string.Empty;
+        public string? Name { get; set; }
 
-        public string LongName { get; set; } = string.Empty;
+        public string? LongName { get; set; }
 
         public static MediaInfoPropFormat Parse(string name, string longName)
         {

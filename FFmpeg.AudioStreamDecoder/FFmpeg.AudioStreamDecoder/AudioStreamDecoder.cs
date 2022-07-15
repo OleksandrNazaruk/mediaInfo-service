@@ -176,7 +176,7 @@ namespace FFmpeg.AudioStreamDecoder
          * You can keep calling the avcodec_receive_* function until you get AVERROR_EOF.
          * You free the contexts as usual.
         **/
-        public void DecodePacket(AVPacket* pkt, AudioDecoder.ReceiveFrameCallBack OnReceiveFrame)
+        public void DecodePacket(AVPacket* pkt, AudioDecoder.ReceiveFrameCallBack? OnReceiveFrame)
         {
             int ret = default;
 
@@ -238,8 +238,7 @@ namespace FFmpeg.AudioStreamDecoder
                                 throw new ApplicationException("Could not fill frame");
 
                             // frame ready
-                            if (OnReceiveFrame != null)
-                                OnReceiveFrame(audioFrameConverted, this._pStream->index);
+                            OnReceiveFrame?.Invoke(audioFrameConverted, this._pStream->index);
                         }
                     }
                     finally
