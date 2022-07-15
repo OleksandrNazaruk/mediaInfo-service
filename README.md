@@ -2,7 +2,7 @@
 > mediaInfo-service is a service.
 
 
-[![Build](https://github.com/OleksandrNazaruk/mediaInfo-service/actions/workflows/build_win_ci.yml/badge.svg)](https://github.com/OleksandrNazaruk/mediaInfo-service/actions/workflows/build_win_ci.yml)
+[![Windowns](https://github.com/OleksandrNazaruk/mediaInfo-service/actions/workflows/build_win_ci.yml/badge.svg)](https://github.com/OleksandrNazaruk/mediaInfo-service/actions/workflows/build_win_ci.yml) [![Linux](https://github.com/OleksandrNazaruk/mediaInfo-service/actions/workflows/build_linux_ci.yml/badge.svg)](https://github.com/OleksandrNazaruk/mediaInfo-service/actions/workflows/build_linux_ci.yml)
 
 ## Requirements
 
