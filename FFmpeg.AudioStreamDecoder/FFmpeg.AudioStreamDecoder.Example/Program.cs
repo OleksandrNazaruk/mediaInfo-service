@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.InteropServices;
+using FFmpeg.AudioStreamDecoder;
 using FFmpeg.AutoGen;
 
 namespace FFmpeg.AudioStreamDecoder.Example
