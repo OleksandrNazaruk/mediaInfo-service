@@ -84,7 +84,7 @@ namespace FFmpeg.AudioStreamDecoder.Example
             }
 
             Console.ReadKey();
-            
+
         }
         private static unsafe void SetupLogging()
         {
