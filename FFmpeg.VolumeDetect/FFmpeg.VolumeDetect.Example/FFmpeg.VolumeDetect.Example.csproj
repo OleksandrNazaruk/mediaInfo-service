@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FFmpeg.MediaInfo\FFmpeg.MediaInfo.DTOs\FFmpeg.MediaInfo.DTOs.csproj" />
+    <ProjectReference Include="..\..\FFmpeg.MediaInfo\FFmpeg.MediaInfo\FFmpeg.MediaInfo.csproj" />
+    <ProjectReference Include="..\..\mediaInfo-service\mediaInfo-service.csproj" />
+    <ProjectReference Include="..\FFmpeg.VolumeDetect.DTOs\FFmpeg.VolumeDetect.DTOs.csproj" />
+    <ProjectReference Include="..\FFmpeg.VolumeDetect\FFmpeg.VolumeDetect.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FFmpeg.AutoGen">
+      <HintPath>..\..\..\..\Library\FFmpeg.AutoGen\FFmpeg.AutoGen\bin\Debug\netstandard2.0\FFmpeg.AutoGen.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>991f4255-90d5-4c4d-86f5-90341650552d</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <AssemblyName>mediaInfo-service</AssemblyName>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <Authors>Oleksandr Nazaruk</Authors>
+    <Company>LLC "Engineering Service, Inc."</Company>
+    <Copyright>© LLC "Engineering Service, Inc." All rights reserved.</Copyright>
+    <RootNamespace>_MediaInfoService</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting.Systemd" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="6.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.16.1" />
+    <PackageReference Include="ParallelExtensionsExtras.CrossPlatform" Version="1.0.0" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="2.1.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.3.1" />
+    <PackageReference Include="System.DirectoryServices" Version="6.0.0" />
+    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FFmpeg.MediaInfo\FFmpeg.MediaInfo.DTOs\FFmpeg.MediaInfo.DTOs.csproj" />
+    <ProjectReference Include="..\FFmpeg.MediaInfo\FFmpeg.MediaInfo\FFmpeg.MediaInfo.csproj" />
+    <ProjectReference Include="..\FFmpeg.VideoStreamDecoder\FFmpeg.VideoStreamDecoder\FFmpeg.VideoStreamDecoder.csproj" />
+    <ProjectReference Include="..\FFmpeg.VolumeDetect\FFmpeg.VolumeDetect.DTOs\FFmpeg.VolumeDetect.DTOs.csproj" />
+    <ProjectReference Include="..\FFmpeg.VolumeDetect\FFmpeg.VolumeDetect\FFmpeg.VolumeDetect.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\ui\" />
+  </ItemGroup>
+
+</Project>

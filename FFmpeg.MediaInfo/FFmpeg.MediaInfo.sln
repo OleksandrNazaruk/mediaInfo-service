@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpeg.MediaInfo", "FFmpeg.MediaInfo\FFmpeg.MediaInfo.csproj", "{43D4E35E-5992-4AB1-B433-1B5A4837E16E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpeg.MediaInfo.Example", "FFmpeg.MediaInfo.Example\FFmpeg.MediaInfo.Example.csproj", "{0267DCFA-0917-4FB6-843A-D9B9A58BBFA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43D4E35E-5992-4AB1-B433-1B5A4837E16E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43D4E35E-5992-4AB1-B433-1B5A4837E16E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43D4E35E-5992-4AB1-B433-1B5A4837E16E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43D4E35E-5992-4AB1-B433-1B5A4837E16E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0267DCFA-0917-4FB6-843A-D9B9A58BBFA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0267DCFA-0917-4FB6-843A-D9B9A58BBFA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0267DCFA-0917-4FB6-843A-D9B9A58BBFA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0267DCFA-0917-4FB6-843A-D9B9A58BBFA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4FDB4B3-B787-4F3D-8E6C-128E861A1012}
+	EndGlobalSection
+EndGlobal
